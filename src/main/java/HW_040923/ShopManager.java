@@ -22,8 +22,10 @@ public class ShopManager {
     public List<Product> getProductsByCategory(ProductCategory category) {
         List<Product> productsByCategory = new ArrayList<>();
         for (Product product : products) {
+            System.out.println(product.getName());
             if (product.getCategory() == category) {
                 productsByCategory.add(product);
+                System.out.println(product.getName());
             }
         }
         return productsByCategory;
@@ -42,6 +44,7 @@ public class ShopManager {
 
 
     public void setProduct(List<Product> products) {
+        this.products = products;
     }
 }
 

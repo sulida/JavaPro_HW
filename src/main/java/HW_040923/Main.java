@@ -19,9 +19,9 @@ public class Main {
 
 
         List<Product> shoes = shopManager.getProductsByCategory(ProductCategory.SHOES);
-        System.out.println("Products in category SHOES:");
+        System.out.println("Products in category SHOES: ");
         for (Product product : shoes) {
-            System.out.println(product);  // Ничего не выводит! Пробовала, не нашла причину.
+            System.out.println(product.getName());  // Ничего не выводит! Пробовала, не нашла причину.
         }
 
 
