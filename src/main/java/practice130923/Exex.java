@@ -315,14 +315,67 @@ public class Exex {
         }
         System.out.println(uniqueList);
     }
-}
+
 
 //    Уровень сложности 10 из 10:
 //        Перебрать ArrayList<Integer> и найти наибольшую возрастающую последовательность элементов.
 
+public void findLargestIncreasingSequenceOfElements (ArrayList<Integer> list) {
+    List<Integer> currentSequence = new ArrayList<>();
+    List<Integer> theLargestSequence = new ArrayList<>();
+    currentSequence.add(list.get(0));
+
+    for (int i = 1; i < list.size() ; i++) {
+        if (list.get(i) < list.get(i-1)) {
+            currentSequence.add(list.get(i));
+        } else
+        if (currentSequence.size() > theLargestSequence.size()) {
+            theLargestSequence = currentSequence;
+        }
+        currentSequence.clear();
+        currentSequence.add(list.get(i));
+    }
+}
+
 //        Перебрать LinkedList<Integer> и удалить все дубликаты элементов.
+
+    public  void deleteAllDublicateElements ( LinkedList<Integer> list) {
+        Set<Integer> uniqueElements = new HashSet<>();
+
+        for (Integer element : list) {
+            if (!uniqueElements.add(element)){
+                list.remove(element);
+            }
+
+        }
+
+
+    }
 //        Перебрать ArrayList<String> и создать новый список, содержащий только уникальные строки.
+    public void createNewListWithUniqueStrings (ArrayList<String> list) {
+        Set<String> uniqueElements = new HashSet<>();
+        List<String> uniqueList = new ArrayList<>();
+        for (String element : list) {
+            if (uniqueElements.add(element)){
+                uniqueList.add(element);
+            }
+
+        }
+
+
+    }
 //        Перебрать LinkedList<String> и объединить все строки в одну с использованием разделителя.
+
+    public void unitStrings ( LinkedList<String> list, String divider){
+        StringBuilder newList = new StringBuilder();
+        for (String element : list) {
+            newList.append(element).append(divider);
+        }
+newList.delete(newList.length()- divider.length(), newList.length());
+    }
 //        Создать LinkedList с объектами вашего собственного класса и отсортировать их по нескольким критериям.
-//
-//
+
+public void createAndSortList (LinkedList<Employee> employees, String condition1, int condition2) {
+
+}
+}
