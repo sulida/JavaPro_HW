@@ -19,10 +19,9 @@ public class Main {
                 new ArrayList<>(), new HashSet<>());
 
 
-        // Создаем объект LibraryManager
-        LibraryManager libraryManager = new LibraryManager();
 
-        // Добавляем книги в библиотеку
+        LibraryManagerStream libraryManager = new LibraryManagerStream();
+
         libraryManager.addBookToLibrary(book1);
         libraryManager.addBookToLibrary(book2);
         libraryManager.addBookToLibrary(book3);
@@ -34,14 +33,14 @@ public class Main {
         // Пользователь резервирует книгу
         libraryManager.reserveBook(user2, book2);
 
-        // Получаем список доступных книг заданного жанра
+        // Список доступных книг определенного жанра
         List<Book> availableBooksByGenre = libraryManager.listAvailableBooksByGenre("Roman");
         System.out.println("Available books with genre Roman:");
         for (Book book : availableBooksByGenre) {
             System.out.println(book.getBookTitle());
         }
 
-        // Получаем множество адресов электронной почты пользователей, зарезервировавших книги
+        // Email пользователей, зарезервировавших книги
         Set<String> userEmailsWithReservedBooks = libraryManager.listUserEmailsWithReservedBooks();
         System.out.println("User emails with reserved books:");
         for (String userEmail : userEmailsWithReservedBooks) {
