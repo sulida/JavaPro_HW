@@ -2,6 +2,8 @@ package practice270923;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,5 +18,34 @@ public class Main {
         LibraryUser user2 = new LibraryUser(2, "Klide White", "kw@gmail.com", "+471230987",
                 new ArrayList<>(), new HashSet<>());
 
+
+        // Создаем объект LibraryManager
+        LibraryManager libraryManager = new LibraryManager();
+
+        // Добавляем книги в библиотеку
+        libraryManager.addBookToLibrary(book1);
+        libraryManager.addBookToLibrary(book2);
+        libraryManager.addBookToLibrary(book3);
+        libraryManager.addBookToLibrary(book4);
+
+        // Пользователь берет книгу в аренду
+        libraryManager.borrowBook(user1, book1);
+
+        // Пользователь резервирует книгу
+        libraryManager.reserveBook(user2, book2);
+
+        // Получаем список доступных книг заданного жанра
+        List<Book> availableBooksByGenre = libraryManager.listAvailableBooksByGenre("Roman");
+        System.out.println("Available books with genre Roman:");
+        for (Book book : availableBooksByGenre) {
+            System.out.println(book.getBookTitle());
+        }
+
+        // Получаем множество адресов электронной почты пользователей, зарезервировавших книги
+        Set<String> userEmailsWithReservedBooks = libraryManager.listUserEmailsWithReservedBooks();
+        System.out.println("User emails with reserved books:");
+        for (String userEmail : userEmailsWithReservedBooks) {
+            System.out.println(userEmail);
+        }
     }
 }
