@@ -10,7 +10,7 @@ class CalculatorTest {
 
     @BeforeEach
     void setUp() {
-        calculator = new Calculator(); // Инициализация объекта перед каждым тестом
+        calculator = new Calculator();
     }
 
     @Test
