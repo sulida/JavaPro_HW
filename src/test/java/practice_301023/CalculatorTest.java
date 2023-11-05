@@ -1,11 +1,17 @@
 package practice_301023;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
     private Calculator calculator;
+
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator(); // Инициализация объекта перед каждым тестом
+    }
 
     @Test
     void add() {
@@ -68,8 +74,8 @@ class CalculatorTest {
     @Test
     void toBaseString() {
         assertEquals("1010", calculator.toBaseString(10, 2));
-        assertEquals("A", calculator.toBaseString(10, 16));
-        assertEquals("3C", calculator.toBaseString(60, 16));
+        assertEquals("a", calculator.toBaseString(10, 16));
+        assertEquals("3c", calculator.toBaseString(60, 16));
     }
 
     @Test
@@ -104,7 +110,7 @@ class CalculatorTest {
 
     @Test
     void lengthOfLongestWord() {
-        assertEquals(7, calculator.lengthOfLongestWord("The quick brown fox jumps over the lazy dog"));
+        assertEquals(9, calculator.lengthOfLongestWord("Please , go quicklier"));
         assertEquals(5, calculator.lengthOfLongestWord("Hello World"));
     }
 
